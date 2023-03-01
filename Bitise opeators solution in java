@@ -1,0 +1,49 @@
+Bitwise operators are useful when we want to work with bits. Here, we'll take a look at them.
+
+Given three positive integers a, b and c. Your task is to perform some bitwise operations on them as given below:
+1. d = a ^ a
+2. e = c ^ b
+3. f = a & b
+4. g = c | (a ^ a)
+5. h = ~e
+Note: ^ is for xor. The working of bitwise operators can be found here.
+
+Example:
+
+Input:
+a = 4
+b = 8
+c = 2
+Output:
+0
+10
+0
+2
+-11
+Constraints:
+1 <= A, B, C <= 106
+
+ 
+
+
+
+solution in java
+
+lass Geeks {
+    // Function to perform bitwise manipulations
+    // a, b and c are input integers
+    static void bitWiseOperation(int a, int b, int c) {
+
+        // code here
+        int d = a^a;
+        int e = c^b;
+        int f = a&b;
+        int g = c|(a^a);
+        int h = ~e;
+        System.out.println(d);
+        System.out.println(e);
+        System.out.println(f);
+        System.out.println(g);
+        System.out.println(h);
+    }
+}
