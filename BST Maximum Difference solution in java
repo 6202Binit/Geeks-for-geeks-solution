@@ -1,0 +1,43 @@
+class Solution
+{
+     public Node search(Node root, int target, int[] sum1) {
+        if (root == null) return null;
+
+        sum1[0] += root.data;
+        if (root.data == target) {
+            return root;
+        }
+        if (target > root.data) {
+            return search(root.right, target, sum1);
+        } else {
+            return search(root.left, target, sum1);
+        }
+    }
+
+    public int leafNodes(Node root) {
+        if (root.left == null && root.right == null) {
+            return root.data;
+        }
+        int mn = Integer.MAX_VALUE;
+        if (root.left != null) {
+            mn = Math.min(mn, leafNodes(root.left));
+        }
+        if (root.right != null) {
+            mn = Math.min(mn, leafNodes(root.right));
+        }
+        return mn + root.data;
+    }
+
+    public int maxDifferenceBST(Node root, int target) {
+        // Code here
+        int[] sum1 = {0};
+        Node targetNode = search(root, target, sum1);
+        if (targetNode == null) return -1;
+
+        int sum2 = leafNodes(targetNode);
+
+        return sum1[0] - sum2;
+     
+        
+    }
+}
