@@ -1,0 +1,29 @@
+class Solve{
+    
+    long maxArea(int height[], int len){
+        // Code Here
+         int n = height.length;
+        int max = 0;
+        int lp = 0;
+        int rp = n-1;
+        while(lp<rp){
+            int ht = Math.min(height[lp],height[rp]);
+            int wt = rp-lp;
+            int area = wt*ht;
+            max = Math.max(area,max);
+
+            if(height[lp]<height[rp]){
+                lp++;
+            }
+            else{
+                rp--;
+            }
+        }
+        return max;
+        
+    }
+    
+}
+
+time complexity - O(n)
+space complexity - O(1)
