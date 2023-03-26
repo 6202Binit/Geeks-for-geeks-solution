@@ -1,0 +1,33 @@
+
+java solution 
+
+class Solution {
+    public int unvisitedLeaves(int N, int leaves, int frogs[]) {
+        // Code here
+           int[] vis = new int[leaves + 1];
+    for (int i = 0; i < N; i++) {
+        int st = frogs[i];
+        if (st <= leaves && vis[st] == 0) {
+            for (int j = st; j <= leaves; j += st) {
+                vis[j] = 1;
+            }
+        }
+    }
+
+    int ans = 0;
+    for (int i = 1; i <= leaves; i++) {
+        if (vis[i] == 0)
+            ans++;
+    }
+
+    return ans;
+    }
+}
+
+
+python code - 
+visited = 0
+for frog in frogs:
+  for i in range(frog-1, leaves, frog):
+  visited |= (1 << i)
+return bin(visited ^ ((1 << leaves) - 1)).count('1')
