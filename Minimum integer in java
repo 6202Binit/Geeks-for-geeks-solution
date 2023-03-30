@@ -1,0 +1,21 @@
+class Solution {
+    public static int minimumInteger(int N, int[] A) {
+      long s = 0;
+        for (int i = 0; i < N; i++) {
+            s += A[i];
+        }
+
+        long ans = Integer.MAX_VALUE;
+        for (int i = 0; i < N; i++) {
+            long x = A[i];
+            if (s <= N * x) {
+                ans = Math.min(ans, x);
+            }
+        }
+
+        return (int) ans;
+    }
+}
+   
+time complexity - O(n)
+space complexity - O(1)
