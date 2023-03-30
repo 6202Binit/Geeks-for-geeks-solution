@@ -1,0 +1,25 @@
+class Solution{
+	int [] lexicographicallyLargest(int [] arr, int n) {
+		//Write your code here
+	 int i = 0;
+        while (i < n) {
+            int j;
+            for (j = i + 1; j < n && arr[j] % 2 == arr[j-1] % 2; j++) {}
+            Arrays.sort(arr, i, j);
+            reverse(arr, i, j-1);
+            i = j;
+        }
+        return arr;
+    }
+
+    // Helper method to reverse a subarray of arr
+    private void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+	}
+}
